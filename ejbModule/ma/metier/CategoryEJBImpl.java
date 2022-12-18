@@ -7,12 +7,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import ma.dao.OnPremise;
-import ma.dao.Server;
+import ma.dao.CategoryOnPremise;
+import ma.dao.CategoryServer;
 import ma.entites.Category;
 
 @Stateless(name = "Category")
-public class CategoryEJBImpl<T extends Category> implements OnPremise<T>, Server<T> {
+public class CategoryEJBImpl<T extends Category> implements CategoryOnPremise<T>, CategoryServer<T> {
 
 	@PersistenceContext
 	private EntityManager em;

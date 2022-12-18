@@ -1,11 +1,8 @@
 package ma.entites;
 
 import java.io.Serializable;
-import java.lang.Long;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
-
 import javax.persistence.*;
 
 /**
@@ -22,10 +19,10 @@ public class Restaurant implements Serializable {
 		private String nom;
 		private double x;
 		private double y;
-		private LocalTime heureOuverture;
-		private LocalTime heureFemeture;
+		private String heureOuverture;
+		private String heureFemeture;
 		private static final long serialVersionUID = 1L;
-		@OneToMany(mappedBy="restaurant")
+		@OneToMany(mappedBy="restaurant" , fetch = FetchType.EAGER , cascade = CascadeType.ALL )
 		private List<Album> albums;
 		public List<Album> getAlbums() {
 			return albums;
@@ -57,31 +54,32 @@ public class Restaurant implements Serializable {
 		public void setY(double y) {
 			this.y = y;
 		}
-		public LocalTime getHeureOuverture() {
+	public String getHeureOuverture() {
 			return heureOuverture;
 		}
-		public void setHeureOuverture(LocalTime heureOuverture) {
+		public void setHeureOuverture(String heureOuverture) {
 			this.heureOuverture = heureOuverture;
 		}
-		public LocalTime getHeureFemeture() {
+		public String getHeureFemeture() {
 			return heureFemeture;
 		}
-		public void setHeureFemeture(LocalTime heureFemeture) {
+		public void setHeureFemeture(String heureFemeture) {
 			this.heureFemeture = heureFemeture;
 		}
-		public Restaurant(int id ,String nom, double x, double y, LocalTime heureOuverture, LocalTime heureFemeture) {
-			super();
-			this.id = id;
-			this.nom = nom;
-			this.x = x;
-			this.y = y;
-			this.heureOuverture = heureOuverture;
-			this.heureFemeture = heureFemeture;
-		}
-
-
 	public Restaurant() {
 		super();
 	}
+	public Restaurant(Integer id, String nom, double x, double y, String heureOuverture, String heureFemeture,
+			List<Album> albums) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.x = x;
+		this.y = y;
+		this.heureOuverture = heureOuverture;
+		this.heureFemeture = heureFemeture;
+		this.albums = albums;
+	}
+	
    
 }

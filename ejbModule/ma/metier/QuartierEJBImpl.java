@@ -7,12 +7,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import ma.dao.OnPremise;
-import ma.dao.Server;
+import ma.dao.QuartierOnPremise;
+import ma.dao.QuartierServer;
 import ma.entites.Quartier;
 
 @Stateless(name = "Quartier")
-public class QuartierEJBImpl<T extends Quartier> implements OnPremise<T>, Server<T> {
+public class QuartierEJBImpl<T extends Quartier> implements QuartierOnPremise<T>, QuartierServer<T> {
 
 	@PersistenceContext
 	private EntityManager em;

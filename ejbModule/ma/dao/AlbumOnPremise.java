@@ -1,14 +1,8 @@
 package ma.dao;
-
-
 import java.util.List;
-
 import javax.ejb.Local;
-
-import ma.entites.Restaurant;
-
 @Local
-public interface OnPremise<T> {
+public interface AlbumOnPremise<T> {
     T add(T c);
     T get(Integer code);
     int delete(Integer code);

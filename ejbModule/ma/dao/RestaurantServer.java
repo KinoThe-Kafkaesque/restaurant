@@ -1,11 +1,8 @@
 package ma.dao;
-
 import java.util.List;
-
 import javax.ejb.Remote;
-import ma.entites.Restaurant;
 @Remote
-public interface Server<T> {
+public interface RestaurantServer<T> {
     T add(T c);
     T get(Integer code);
     int delete(Integer code);

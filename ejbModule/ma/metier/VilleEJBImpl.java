@@ -1,22 +1,18 @@
 package ma.metier;
 
-import java.util.Date;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import ma.dao.OnPremise;
-import ma.dao.Server;
+import ma.dao.VilleOnPremise;
+import ma.dao.VilleServer;
 import ma.entites.Ville;
 
 @Stateless(name = "Ville")
-public class VilleEJBImpl<T extends Ville> implements OnPremise<T>, Server<T> {
+public class VilleEJBImpl<T extends Ville> implements VilleOnPremise<T>, VilleServer<T> {
 
 	@PersistenceContext
 	private EntityManager em;

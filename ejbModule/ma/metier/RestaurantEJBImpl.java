@@ -1,22 +1,17 @@
 package ma.metier;
 
-import java.util.Date;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-
-import ma.dao.OnPremise;
-import ma.dao.Server;
+import ma.dao.ResaturantOnPremise;
+import ma.dao.RestaurantServer;
 import ma.entites.Restaurant;
 
 @Stateless(name = "Restaurant")
-public class RestaurantEJBImpl<T extends Restaurant> implements OnPremise<T>, Server<T> {
+public class RestaurantEJBImpl<T extends Restaurant> implements ResaturantOnPremise<T>, RestaurantServer<T> {
 
 	@PersistenceContext
 	private EntityManager em;

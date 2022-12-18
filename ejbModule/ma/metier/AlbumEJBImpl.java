@@ -8,12 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import ma.dao.OnPremise;
-import ma.dao.Server;
+import ma.dao.AlbumOnPremise;
+import ma.dao.AlbumServer;
 import ma.entites.Album;
 
 @Stateless(name = "Album")
-public class AlbumEJBImpl<T extends Album> implements OnPremise<T>, Server<T> {
+public class AlbumEJBImpl<T extends Album> implements AlbumOnPremise<T>, AlbumServer<T> {
 
 	@PersistenceContext
 	private EntityManager em;
