@@ -6,12 +6,12 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import ma.dao.ResaturantOnPremise;
+import ma.dao.RestaurantOnPremise;
 import ma.dao.RestaurantServer;
 import ma.entites.Restaurant;
 
 @Stateless(name = "Restaurant")
-public class RestaurantEJBImpl<T extends Restaurant> implements ResaturantOnPremise<T>, RestaurantServer<T> {
+public class RestaurantEJBImpl<T extends Restaurant> implements RestaurantOnPremise<T>, RestaurantServer<T> {
 
 	@PersistenceContext
 	private EntityManager em;

@@ -3,6 +3,8 @@ package ma.entites;
 import java.io.Serializable;
 import java.lang.Long;
 import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.*;
 
 /**
@@ -17,6 +19,8 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
+	@OneToMany(mappedBy="category" , fetch = FetchType.EAGER , cascade = CascadeType.ALL )
+	private Set<Restaurant> restaurants;
 	public int getId() {
 		return id;
 	}

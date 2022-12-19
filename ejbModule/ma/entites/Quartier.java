@@ -1,8 +1,8 @@
 package ma.entites;
 
 import java.io.Serializable;
-import java.lang.Long;
-import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.*;
 
 /**
@@ -16,6 +16,10 @@ public class Quartier implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
+	@ManyToOne
+	private Ville ville;
+	@OneToMany(mappedBy="quartier" , fetch = FetchType.EAGER , cascade = CascadeType.ALL )
+	private Set<Restaurant> restaurants;
 	public int getId() {
 		return id;
 	}
@@ -27,6 +31,12 @@ public class Quartier implements Serializable {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public Ville getVille() {
+		return ville;
+	}
+	public void setVille(Ville ville) {
+		this.ville = ville;
 	}
 	public Quartier(int id, String nom) {
 		super();

@@ -3,6 +3,8 @@ package ma.entites;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
 
 /**
@@ -24,6 +26,23 @@ public class Restaurant implements Serializable {
 		private static final long serialVersionUID = 1L;
 		@OneToMany(mappedBy="restaurant" , fetch = FetchType.EAGER , cascade = CascadeType.ALL )
 		private List<Album> albums;
+		@ManyToOne
+		private Category category;
+		@ManyToOne
+		private Quartier quartier;
+
+		public Category getCategory() {
+			return category;
+		}
+		public void setCategory(Category category) {
+			this.category = category;
+		}
+		public Quartier getQuartier() {
+			return quartier;
+		}
+		public void setQuartier(Quartier quartier) {
+			this.quartier = quartier;
+		}
 		public List<Album> getAlbums() {
 			return albums;
 		}
@@ -69,17 +88,5 @@ public class Restaurant implements Serializable {
 	public Restaurant() {
 		super();
 	}
-	public Restaurant(Integer id, String nom, double x, double y, String heureOuverture, String heureFemeture,
-			List<Album> albums) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.x = x;
-		this.y = y;
-		this.heureOuverture = heureOuverture;
-		this.heureFemeture = heureFemeture;
-		this.albums = albums;
-	}
 	
-   
 }
