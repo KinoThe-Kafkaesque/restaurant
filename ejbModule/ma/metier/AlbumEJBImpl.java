@@ -21,7 +21,7 @@ public class AlbumEJBImpl<T extends Album> implements AlbumOnPremise<T>, AlbumSe
 	@Override
 	@PermitAll
 	public List<T> getAll() {
-		TypedQuery<T> query = em.createQuery("SELECT r FROM Album r", (Class<T>) Album.class);
+		TypedQuery<T> query = em.createQuery("SELECT a FROM Album a", (Class<T>) Album.class);
 		return query.getResultList();
 	}
 

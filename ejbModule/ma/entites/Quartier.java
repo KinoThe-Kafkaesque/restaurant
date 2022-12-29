@@ -3,6 +3,7 @@ package ma.entites;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 
 /**
@@ -16,8 +17,10 @@ public class Quartier implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
+	@JsonbTransient
 	@ManyToOne
 	private Ville ville;
+	@JsonbTransient
 	@OneToMany(mappedBy="quartier" , fetch = FetchType.EAGER , cascade = CascadeType.ALL )
 	private Set<Restaurant> restaurants;
 	public int getId() {

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.lang.Long;
 import java.time.LocalDate;
 import java.util.Date;
+
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 
 /**
@@ -18,6 +20,7 @@ public class Album implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String photo;
+	@JsonbTransient
 	@ManyToOne
 	private Restaurant restaurant;
 	public int getId() {
