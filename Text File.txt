@@ -1,0 +1,2 @@
+sonar-scanner   -Dsonar.projectKey=restauEJB   -Dsonar.sources=.   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=sqp_d9ad46a1f3cf87cdb83eba6d6dc126bd77089081  -Dsonar.java.binaries=./build/classes
+
